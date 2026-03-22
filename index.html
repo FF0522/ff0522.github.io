@@ -3,68 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的技術部落格 | 逐浪百川</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>我的個人網站 | 逐浪百川</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav>
-        <div class="logo">OceanFlow</div>
+        <div class="logo">MyPortfolio</div>
         <ul class="nav-links">
-            <li><a href="#portfolio">技術文章</a></li>
             <li><a href="#about">關於我</a></li>
+            <li><a href="#portfolio">技術與專題</a></li>
+            <li><a href="#blog">部落格</a></li>
         </ul>
     </nav>
 
     <header class="hero">
-        <h1>我是 <span id="typing-text"></span><span class="cursor">|</span></h1>
-        <p>探索系統深度，演算未來的無限可能性。</p>
+        <h1>探索系統的深度，<br><span class="highlight">演算未來的無限</span></h1>
+        <p>熱衷於競賽程式設計、硬體開發與資訊安全。</p>
     </header>
 
     <section id="portfolio" class="container">
-        
-        <a href="post_algorithms.html" class="card">
+        <div class="card">
             <div class="card-icon">💻</div>
-            <h3>競技程式設計：從 0 到 1 的 LCA 演算法優化</h3>
-            <p>深入探討最近公共祖先(LCA)在樹狀DP中的應用，附 C++23 模板...</p>
-            
-            <div class="article-meta">
-                <span class="meta-item"><i class="far fa-calendar-alt"></i> 2026-03-15</span>
-                <span class="meta-item"><i class="far fa-file-alt"></i> 1,250 字</span>
-                <span class="meta-item"><i class="far fa-clock"></i> 12 分鐘</span>
-                <span class="meta-item"><i class="far fa-eye"></i> 345 次</span>
-            </div>
-            
+            <h3>競技程式設計</h3>
+            <p>專注於演算法最佳化與解題。記錄了在 UVa、Luogu 等平台的刷題歷程。</p>
             <ul class="tags">
                 <li>C++23</li>
-                <li>LCA</li>
-                <li>Algorithm</li>
+                <li>DSU / LCA</li>
+                <li>Tree DP</li>
+                <li>Codeforces</li>
             </ul>
-        </a>
+        </div>
 
-        <a href="post_security.html" class="card">
+        <div class="card">
             <div class="card-icon">🛡️</div>
-            <h3>資安實驗室：Burp Suite 網站滲透測試實戰</h3>
-            <p>紀錄參與 CTF 時，如何利用 Burp Suite 進行 Web 漏洞分析與攻擊重現。</p>
-            
-            <div class="article-meta">
-                <span class="meta-item"><i class="far fa-calendar-alt"></i> 2026-03-10</span>
-                <span class="meta-item"><i class="far fa-file-alt"></i> 892 字</span>
-                <span class="meta-item"><i class="far fa-clock"></i> 8 分鐘</span>
-                <span class="meta-item"><i class="far fa-eye"></i> 521 次</span>
-            </div>
-            
+            <h3>資安實驗室</h3>
+            <p>CTF 解題紀錄與系統管理筆記，探索網頁安全與滲透測試技術。</p>
             <ul class="tags">
+                <li>Kali Linux</li>
+                <li>Burp Suite</li>
                 <li>Web Security</li>
-                <li>CTF</li>
-                <li>Kali</li>
             </ul>
-        </a>
+        </div>
 
+        <div class="card">
+            <div class="card-icon">🤖</div>
+            <h3>硬體與專題開發</h3>
+            <p>結合軟硬體的跨領域實作，包含影像辨識與感測器應用的系統開發。</p>
+            <ul class="tags">
+                <li>Arduino/ESP32</li>
+                <li>YOLOv3 追蹤</li>
+                <li>超音波感測融合</li>
+                <li>物理探究實驗</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">📝</div>
+            <h3>部落格與日常</h3>
+            <p>分享學習歷程、古文賞析，以及懸疑推理節目的觀後心得。</p>
+            <ul class="tags">
+                <li>培訓營紀錄</li>
+                <li>《女子推理社》</li>
+                <li>生活隨筆</li>
+            </ul>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 OceanFlow. All Rights Reserved.</p>
+        <p>&copy; 2026. Designed with ❤️.</p>
     </footer>
 
     <script src="script.js"></script>

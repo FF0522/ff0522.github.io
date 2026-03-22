@@ -1,70 +1,139 @@
-/* ... (保留原本的全域設定、body、nav、hero 樣式) ... */
-
-/* === 全域設定更新 === */
+/* 全域設定 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', 'Noto Sans TC', sans-serif; /* 加入中文支援 */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* === 打字機游標動畫 === */
-.cursor {
+/* 逐浪百川：深海藍到青色的動態漸層背景 */
+body {
+    background: linear-gradient(135deg, #0A192F 0%, #112240 50%, #004d7a 100%);
+    background-attachment: fixed;
+    color: #CCD6F6;
+    line-height: 1.6;
+}
+
+/* 導覽列 */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(10, 25, 47, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
     color: #64FFDA;
-    animation: blink 1s infinite;
 }
 
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
 }
 
-/* === 卡片樣式更新 (因為變成 <a>) === */
+.nav-links a {
+    color: #CCD6F6;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #64FFDA;
+}
+
+/* 首頁視覺區 */
+.hero {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: #E6F1FF;
+    margin-bottom: 20px;
+}
+
+.hero .highlight {
+    color: #64FFDA;
+}
+
+/* 卡片容器 (使用 Grid 排版) */
+.container {
+    max-width: 1200px;
+    margin: 0 auto 100px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* === 核心互動設計：浮動方框與玻璃材質 === */
 .card {
     background: rgba(17, 34, 64, 0.7);
     border: 1px solid rgba(100, 255, 218, 0.1);
     border-radius: 16px;
-    padding: 25px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 30px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 彈性的過渡動畫 */
     position: relative;
     overflow: hidden;
-    
-    /* 確保 <a> 標籤外觀像普通卡片 */
-    text-decoration: none; 
-    display: flex;
-    flex-direction: column;
-    color: inherit; 
-    cursor: pointer;
 }
 
-/* Hover 特效保持 */
+/* 滑鼠移過去的特效 */
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 180, 216, 0.2);
-    border-color: rgba(100, 255, 218, 0.5);
-    background: rgba(17, 34, 64, 0.9); /* 稍微變深增加層次 */
+    transform: translateY(-12px); /* 向上浮動 */
+    box-shadow: 0 15px 30px rgba(0, 180, 216, 0.2); /* 底部青色發光陰影 */
+    border-color: rgba(100, 255, 218, 0.5); /* 邊框變亮 */
 }
 
-/* === 新增：文章元數據樣式 === */
-.article-meta {
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #E6F1FF;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #8892B0;
+    margin-bottom: 20px;
+}
+
+/* 標籤樣式 */
+.tags {
+    list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
-    font-size: 0.8rem;
+    gap: 10px;
+}
+
+.tags li {
+    font-size: 0.85rem;
+    color: #64FFDA;
+    background: rgba(100, 255, 218, 0.1);
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+/* 頁腳 */
+footer {
+    text-align: center;
+    padding: 30px;
     color: #8892B0;
-    margin-bottom: 15px;
-    border-top: 1px solid rgba(100, 255, 218, 0.1);
-    padding-top: 15px;
+    font-size: 0.9rem;
 }
-
-.meta-item {
-    display: flex;
-    align-items: center;
-    gap: 5px; /* 圖示與文字的距離 */
-}
-
-.meta-item i {
-    color: #64FFDA; /* 圖示顏色使用點綴色 */
-}
-
-/* ... (保留原本的 card h3, p, tags, footer 樣式) ... */
