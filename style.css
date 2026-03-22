@@ -1,41 +1,139 @@
-body {
-    font-family: Arial;
-    background: #0f172a;
-    color: white;
+/* 全域設定 */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-header {
+/* 逐浪百川：深海藍到青色的動態漸層背景 */
+body {
+    background: linear-gradient(135deg, #0A192F 0%, #112240 50%, #004d7a 100%);
+    background-attachment: fixed;
+    color: #CCD6F6;
+    line-height: 1.6;
+}
+
+/* 導覽列 */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(10, 25, 47, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #64FFDA;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #CCD6F6;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #64FFDA;
+}
+
+/* 首頁視覺區 */
+.hero {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 20px;
-    font-size: 24px;
+    padding: 0 20px;
 }
 
-.grid {
+.hero h1 {
+    font-size: 3rem;
+    color: #E6F1FF;
+    margin-bottom: 20px;
+}
+
+.hero .highlight {
+    color: #64FFDA;
+}
+
+/* 卡片容器 (使用 Grid 排版) */
+.container {
+    max-width: 1200px;
+    margin: 0 auto 100px auto;
+    padding: 0 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
+/* === 核心互動設計：浮動方框與玻璃材質 === */
 .card {
-    background: #1e293b;
-    padding: 20px;
-    border-radius: 15px;
-    transition: 0.3s;
-    cursor: pointer;
+    background: rgba(17, 34, 64, 0.7);
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    border-radius: 16px;
+    padding: 30px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 彈性的過渡動畫 */
+    position: relative;
+    overflow: hidden;
 }
 
+/* 滑鼠移過去的特效 */
 .card:hover {
-    transform: translateY(-10px) scale(1.03);
-    background: #334155;
+    transform: translateY(-12px); /* 向上浮動 */
+    box-shadow: 0 15px 30px rgba(0, 180, 216, 0.2); /* 底部青色發光陰影 */
+    border-color: rgba(100, 255, 218, 0.5); /* 邊框變亮 */
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
 }
 
 .card h3 {
-    margin: 0 0 10px;
+    color: #E6F1FF;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
 }
 
 .card p {
-    font-size: 14px;
-    color: #cbd5f5;
+    color: #8892B0;
+    margin-bottom: 20px;
+}
+
+/* 標籤樣式 */
+.tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tags li {
+    font-size: 0.85rem;
+    color: #64FFDA;
+    background: rgba(100, 255, 218, 0.1);
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+/* 頁腳 */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #8892B0;
+    font-size: 0.9rem;
 }
