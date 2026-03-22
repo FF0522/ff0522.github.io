@@ -1,17 +1,17 @@
-/* 全域設定 */
+/* 基本設定 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', 'Noto Sans TC', sans-serif;
 }
 
-/* 逐浪百川：深海藍到青色的動態漸層背景 */
 body {
     background: linear-gradient(135deg, #0A192F 0%, #112240 50%, #004d7a 100%);
     background-attachment: fixed;
     color: #CCD6F6;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* 導覽列 */
@@ -19,18 +19,19 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    background: rgba(10, 25, 47, 0.8);
+    padding: 20px 8%;
+    background: rgba(10, 25, 47, 0.85);
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: bold;
     color: #64FFDA;
+    letter-spacing: 1px;
 }
 
 .nav-links {
@@ -42,16 +43,17 @@ nav {
 .nav-links a {
     color: #CCD6F6;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: 0.3s;
+    font-size: 0.95rem;
 }
 
 .nav-links a:hover {
     color: #64FFDA;
 }
 
-/* 首頁視覺區 */
+/* Hero 區塊 */
 .hero {
-    height: 60vh;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -63,58 +65,91 @@ nav {
 .hero h1 {
     font-size: 3rem;
     color: #E6F1FF;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .hero .highlight {
     color: #64FFDA;
 }
 
-/* 卡片容器 (使用 Grid 排版) */
+.hero p {
+    font-size: 1.2rem;
+    color: #8892B0;
+}
+
+/* 容器排版 */
 .container {
-    max-width: 1200px;
-    margin: 0 auto 100px auto;
+    max-width: 1100px;
+    margin: 0 auto 80px auto;
     padding: 0 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
 }
 
-/* === 核心互動設計：浮動方框與玻璃材質 === */
+/* --- 核心：玻璃方框卡片樣式 --- */
 .card {
-    background: rgba(17, 34, 64, 0.7);
+    background: rgba(17, 34, 64, 0.6);
     border: 1px solid rgba(100, 255, 218, 0.1);
-    border-radius: 16px;
-    padding: 30px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 彈性的過渡動畫 */
-    position: relative;
-    overflow: hidden;
+    border-radius: 20px;
+    padding: 35px;
+    text-decoration: none; /* 移除超連結底線 */
+    color: inherit;        /* 繼承文字顏色 */
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(5px);
 }
 
-/* 滑鼠移過去的特效 */
+/* 滑鼠移動過去的浮動效果 */
 .card:hover {
-    transform: translateY(-12px); /* 向上浮動 */
-    box-shadow: 0 15px 30px rgba(0, 180, 216, 0.2); /* 底部青色發光陰影 */
-    border-color: rgba(100, 255, 218, 0.5); /* 邊框變亮 */
+    transform: translateY(-12px);
+    background: rgba(17, 34, 64, 0.8);
+    border-color: rgba(100, 255, 218, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 180, 216, 0.25);
 }
 
 .card-icon {
     font-size: 2.5rem;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .card h3 {
     color: #E6F1FF;
     font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* --- 文章資訊數據樣式 --- */
+.article-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 0.8rem;
+    color: #8892B0;
     margin-bottom: 15px;
+    border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+    padding-bottom: 15px;
+}
+
+.article-info span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.article-info i {
+    color: #64FFDA;
 }
 
 .card p {
     color: #8892B0;
-    margin-bottom: 20px;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    flex-grow: 1;
 }
 
-/* 標籤樣式 */
+/* 標籤 */
 .tags {
     list-style: none;
     display: flex;
@@ -123,17 +158,17 @@ nav {
 }
 
 .tags li {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: #64FFDA;
     background: rgba(100, 255, 218, 0.1);
-    padding: 5px 10px;
-    border-radius: 20px;
+    padding: 4px 12px;
+    border-radius: 15px;
+    border: 1px solid rgba(100, 255, 218, 0.2);
 }
 
-/* 頁腳 */
 footer {
     text-align: center;
-    padding: 30px;
+    padding: 40px;
     color: #8892B0;
-    font-size: 0.9rem;
+    border-top: 1px solid rgba(100, 255, 218, 0.05);
 }

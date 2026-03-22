@@ -3,74 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的個人網站 | 逐浪百川</title>
+    <title>個人技術站 | 逐浪百川</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <nav>
-        <div class="logo">MyPortfolio</div>
+        <div class="logo">OceanFlow</div>
         <ul class="nav-links">
             <li><a href="#about">關於我</a></li>
-            <li><a href="#portfolio">技術與專題</a></li>
-            <li><a href="#blog">部落格</a></li>
+            <li><a href="#portfolio">技術文章</a></li>
+            <li><a href="#contact">聯絡</a></li>
         </ul>
     </nav>
 
     <header class="hero">
-        <h1>探索系統的深度，<br><span class="highlight">演算未來的無限</span></h1>
-        <p>熱衷於競賽程式設計、硬體開發與資訊安全。</p>
+        <h1>探索系統深度，<span class="highlight">演算無限可能</span></h1>
+        <p>專注於 C++ 競技程式、資訊安全與硬體開發</p>
     </header>
 
     <section id="portfolio" class="container">
-        <div class="card">
+        
+        <a href="post-algo.html" class="card">
             <div class="card-icon">💻</div>
-            <h3>競技程式設計</h3>
-            <p>專注於演算法最佳化與解題。記錄了在 UVa、Luogu 等平台的刷題歷程。</p>
+            <h3>競技程式設計：C++23 模板實戰</h3>
+            
+            <div class="article-info">
+                <span><i class="far fa-calendar-alt"></i> 2026-03-22</span>
+                <span><i class="far fa-file-alt"></i> 1,250 字</span>
+                <span><i class="far fa-clock"></i> 10 分鐘</span>
+                <span><i class="far fa-eye"></i> 156 次</span>
+            </div>
+
+            <p>詳細紀錄了 DSU 與 LCA 的優化模板，並針對 C++23 的新特性進行效能測試...</p>
+            
             <ul class="tags">
                 <li>C++23</li>
-                <li>DSU / LCA</li>
-                <li>Tree DP</li>
-                <li>Codeforces</li>
+                <li>Algorithm</li>
+                <li>DSU</li>
             </ul>
-        </div>
+        </a>
 
-        <div class="card">
+        <a href="post-security.html" class="card">
             <div class="card-icon">🛡️</div>
-            <h3>資安實驗室</h3>
-            <p>CTF 解題紀錄與系統管理筆記，探索網頁安全與滲透測試技術。</p>
-            <ul class="tags">
-                <li>Kali Linux</li>
-                <li>Burp Suite</li>
-                <li>Web Security</li>
-            </ul>
-        </div>
+            <h3>資安筆記：Burp Suite 滲透測試</h3>
+            
+            <div class="article-info">
+                <span><i class="far fa-calendar-alt"></i> 2026-03-15</span>
+                <span><i class="far fa-file-alt"></i> 892 字</span>
+                <span><i class="far fa-clock"></i> 8 分鐘</span>
+                <span><i class="far fa-eye"></i> 342 次</span>
+            </div>
 
-        <div class="card">
-            <div class="card-icon">🤖</div>
-            <h3>硬體與專題開發</h3>
-            <p>結合軟硬體的跨領域實作，包含影像辨識與感測器應用的系統開發。</p>
+            <p>紀錄參與 CTF 時使用 Burp Suite 攔截封包與分析 Web 漏洞的過程...</p>
+            
             <ul class="tags">
-                <li>Arduino/ESP32</li>
-                <li>YOLOv3 追蹤</li>
-                <li>超音波感測融合</li>
-                <li>物理探究實驗</li>
+                <li>CyberSecurity</li>
+                <li>CTF</li>
+                <li>Web</li>
             </ul>
-        </div>
+        </a>
 
-        <div class="card">
-            <div class="card-icon">📝</div>
-            <h3>部落格與日常</h3>
-            <p>分享學習歷程、古文賞析，以及懸疑推理節目的觀後心得。</p>
+        <a href="post-physics.html" class="card">
+            <div class="card-icon">🧪</div>
+            <h3>物理探究：紙杯傳聲筒實驗</h3>
+            
+            <div class="article-info">
+                <span><i class="far fa-calendar-alt"></i> 2026-02-10</span>
+                <span><i class="far fa-file-alt"></i> 1,100 字</span>
+                <span><i class="far fa-clock"></i> 12 分鐘</span>
+                <span><i class="far fa-eye"></i> 89 次</span>
+            </div>
+
+            <p>探討棉繩長度對音量衰減的影響，並使用數據分析軟體繪製趨勢圖表...</p>
+            
             <ul class="tags">
-                <li>培訓營紀錄</li>
-                <li>《女子推理社》</li>
-                <li>生活隨筆</li>
+                <li>Physics</li>
+                <li>Research</li>
             </ul>
-        </div>
+        </a>
+
     </section>
 
     <footer>
-        <p>&copy; 2026. Designed with ❤️.</p>
+        <p>&copy; 2026 OceanFlow Portfolio. Powered by GitHub Pages.</p>
     </footer>
 
     <script src="script.js"></script>
