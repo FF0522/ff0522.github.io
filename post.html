@@ -1,2 +1,16 @@
 <h1 id="title"></h1>
 <p id="content"></p>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const title = params.get('title');
+
+fetch('posts.json')
+  .then(res => res.json())
+  .then(data => {
+    const post = data.find(p => p.title === title);
+
+    document.getElementById('title').innerText = post.title;
+    document.getElementById('content').innerText = post.content || "內容尚未填寫";
+  });
+</script>

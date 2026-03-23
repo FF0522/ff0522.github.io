@@ -72,10 +72,27 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('posts.json')
     .then(res => res.json())
     .then(data => {
-        const post = data.find(p => p.title === title);
+        const container = document.getElementById('post-list');
 
-        document.getElementById('title').innerText = post.title;
-        document.getElementById('content').innerText = post.content;
+        data.forEach(post => {
+        const div = document.createElement('div');
+        div.classList.add('post-item');
+
+        div.innerHTML = `
+            <h3>${post.title}</h3>
+            <p>${post.date}</p>
+        `;
+
+        // 點擊 → 進入文章頁
+        div.onclick = () => {
+            window.location.href = `post.html?title=${post.title}`;
+        };
+
+        container.appendChild(div);
+        });
     });
-});
 
+        function goToBlog() {
+            window.location.href = "blog.html";
+        }
+});
