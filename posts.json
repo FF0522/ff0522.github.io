@@ -1,10 +1,17 @@
 [
   {
-    "title": "我的第一篇文章",
-    "date": "2026-03-23"
+    "title": "CF 解題紀錄 #1",
+    "date": "2026-03-23",
+    "category": "cp"
   },
   {
-    "title": "資安學習筆記",
-    "date": "2026-03-20"
+    "title": "SQL Injection 筆記",
+    "date": "2026-03-20",
+    "category": "security"
+  },
+  {
+    "title": "營隊心得",
+    "date": "2026-03-18",
+    "category": "life"
   }
 ]

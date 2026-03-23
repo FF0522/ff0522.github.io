@@ -95,6 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
 });
 
-function goToBlog() {
-    window.location.href = "blog.html";
+function goToBlog(category) {
+    window.location.href = `blog.html?category=${category}`;
 }
