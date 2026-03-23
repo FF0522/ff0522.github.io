@@ -1,3 +1,8 @@
+
+function goToBlog(category) {
+    window.location.href = `blog.html?category=${category}`;
+}
+
 // 確保網頁元素都載入完成後再執行
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -95,7 +100,15 @@ document.addEventListener('DOMContentLoaded', () => {
         
 });
 
+window.addEventListener('scroll', () => {
+    const element = document.querySelector('.fade-out');
 
-function goToBlog(category) {
-    window.location.href = `blog.html?category=${category}`;
-}
+    const scrollY = window.scrollY;
+    const maxScroll = 300;
+
+    let opacity = 1 - scrollY / maxScroll;
+    if (opacity < 0) opacity = 0;
+
+    element.style.opacity = opacity;
+    element.style.transform = `translateY(-${scrollY * 0.3}px)`;
+});

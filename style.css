@@ -173,3 +173,7 @@ footer {
   padding: 10px;
   overflow-x: auto;
 }
+
+.fade-out {
+  transition: opacity 0.2s linear;
+}
