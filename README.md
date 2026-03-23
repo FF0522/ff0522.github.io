@@ -4,9 +4,10 @@
 
 ## 📍 關於我 (About Me)
 - 🎓 目前是一名專注於資訊科學的高中生
-- 💻 熱愛 **競賽程式 (Competitive Programming)**，主要使用 C++23 撰寫算法
+- 💻 熱愛 **競賽程式 (Competitive Programming)**，主要使用 C++ 撰寫算法
 - 🛡️ 對 **資訊安全 (Cybersecurity)** 與 CTF 挑戰充滿好奇
 - 🛠️ 喜歡動手實作硬體與網頁開發
+- 目前高二，目標是 **陽明交大** 的 **資訊工程** 學系
 
 ## 📚 網站內容概覽
 - **競程**: 菜菜等著被大佬電的神秘東東
@@ -14,9 +15,9 @@
 - **日常**: 記錄好玩的生活
 
 ## 🛠️ 技術棧 (Tech Stack)
-- **Frontend**: HTML / CSS (Glassmorphism 風格) / JavaScript
+- **Frontend**: HTML / CSS / JavaScript
 - **Tools**: VS Code, Git, Linux (Kali)
-- **Programming**: C++, Python, Arduino
+- **Programming**: C++, Python
 
 ## 📈 持續更新中...
 - [ ] 增加 Codeforces 評分動態顯示
