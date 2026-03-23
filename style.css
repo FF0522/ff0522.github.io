@@ -156,3 +156,20 @@ footer {
   margin: 10px 0;
   cursor: pointer;
 }
+
+#content {
+  max-width: 800px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+#content h1, #content h2 {
+  margin-top: 20px;
+}
+
+#content pre {
+  background: #1e1e1e;
+  color: #fff;
+  padding: 10px;
+  overflow-x: auto;
+}
