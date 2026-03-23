@@ -92,7 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-        function goToBlog() {
-            window.location.href = "blog.html";
-        }
+        
 });
+
+function goToBlog() {
+    window.location.href = "blog.html";
+}
