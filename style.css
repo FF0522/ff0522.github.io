@@ -137,3 +137,15 @@ footer {
     color: #8892B0;
     font-size: 0.9rem;
 }
+
+/* === 動態效果：淡入與滑動 === */
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}

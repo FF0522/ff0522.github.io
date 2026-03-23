@@ -29,4 +29,53 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
         scrollObserver.observe(card);
     });
+
+    // 另一個 Intersection Observer 用於淡入效果
+    const faders = document.querySelectorAll('.fade');
+
+    const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        }
+    });
+    });
+
+    faders.forEach(el => observer.observe(el));
+
+    fetch('posts.json')
+        .then(res => res.json())
+        .then(data => {
+            const container = document.getElementById('posts');
+
+            data.forEach(post => {
+            const div = document.createElement('div');
+            div.classList.add('post-card');
+
+            div.innerHTML = `
+                <h3>${post.title}</h3>
+                <p>${post.date}</p>
+                <p>${post.content.substring(0, 50)}...</p>
+            `;
+
+            container.appendChild(div);
+            });
+        });
+    
+    div.onclick = () => {
+        window.location.href = `post.html?title=${post.title}`;
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const title = params.get('title');
+
+    fetch('posts.json')
+    .then(res => res.json())
+    .then(data => {
+        const post = data.find(p => p.title === title);
+
+        document.getElementById('title').innerText = post.title;
+        document.getElementById('content').innerText = post.content;
+    });
 });
+
