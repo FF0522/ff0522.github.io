@@ -141,3 +141,74 @@ nav {
 .post-item:hover {
     background: rgba(100, 255, 218, 0.1);
 }
+
+/* --- 文章頁面專用樣式 (不影響封面) --- */
+
+/* 文章與列表的置中容器 */
+.post-container {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 40px;
+    background: rgba(17, 34, 64, 0.6); /* 半透明背景，透出網頁原本的漸層 */
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.post-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #E6F1FF;
+    margin-bottom: 10px;
+}
+
+.post-meta {
+    text-align: center;
+    color: #64FFDA;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+}
+
+/* Markdown 內容排版 */
+#content {
+    line-height: 1.8;
+    color: #CCD6F6;
+}
+
+/* Markdown 內的標題與文字 */
+#content h1, #content h2, #content h3 {
+    color: #64FFDA;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+/* 強制 Markdown 背景透明，直接使用網頁背景 */
+.markdown-body {
+    background: transparent !important;
+}
+
+/* 程式碼區塊樣式修正 */
+#content pre {
+    background: rgba(2, 12, 27, 0.7) !important;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    margin: 20px 0;
+}
+
+/* 文章列表項目的滑過效果 */
+.post-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid #64FFDA;
+    padding: 15px 20px;
+    margin: 15px 0;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.post-item:hover {
+    background: rgba(100, 255, 218, 0.1);
+    transform: translateX(5px);
+}
