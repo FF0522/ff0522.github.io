@@ -3,61 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文章內容</title>
+    <title>文章內容 - 邦邦邦邦</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js/styles/github-dark.css">
 </head>
 <body>
+    <nav>
+        <a href="index.html" class="logo" style="text-decoration: none;">邦邦邦邦</a>
+        <ul class="nav-links">
+            <li><a href="blog.html?category=cp">競程</a></li>
+            <li><a href="blog.html?category=security">資安</a></li>
+            <li><a href="blog.html?category=life">日常</a></li>
+        </ul>
+    </nav>
 
-<nav>
-    <a href="index.html" class="logo" style="text-decoration: none;">邦邦邦邦</a>
-    <ul class="nav-links">
-        <li><a href="blog.html?category=cp">競程</a></li>
-        <li><a href="blog.html?category=security">資安</a></li>
-        <li><a href="blog.html?category=life">日常</a></li>
-    </ul>
-</nav>
+    <div class="post-container">
+        <header class="post-header-center">
+            <h1 id="title" class="post-title">載入中...</h1>
+            <p id="meta" class="post-meta"></p>
+        </header>
+        <hr style="border: 0; height: 1px; background: rgba(100, 255, 218, 0.2); margin-bottom: 30px;">
+        <div id="content" class="markdown-body"></div>
+    </div>
 
-<div class="post-container">
-    <h1 id="title" class="post-title">載入中...</h1>
-    <p id="meta" class="post-meta"></p>
-    <hr style="border: 0; height: 1px; background: rgba(100, 255, 218, 0.2); margin-bottom: 30px;">
-    <div id="content" class="markdown-body"></div>
-</div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js/lib/common.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/highlight.js/lib/common.min.js"></script>
+    <script>
+    const params = new URLSearchParams(window.location.search);
+    const titleParam = params.get('title');
 
-<script>
-const params = new URLSearchParams(window.location.search);
-const titleParam = params.get('title');
+    fetch('posts.json')
+      .then(res => res.json())
+      .then(data => {
+        const post = data.find(p => p.title === titleParam);
+        if (!post) return;
 
-fetch('posts.json')
-  .then(res => res.json())
-  .then(data => {
-    const post = data.find(p => p.title === titleParam);
-    if (!post) {
-        document.getElementById('title').innerText = "找不到文章";
-        return;
-    }
+        document.getElementById('title').innerText = post.title;
+        document.getElementById('meta').innerText = `${post.date} | 分類：${post.category}`;
 
-    document.getElementById('title').innerText = post.title;
-    document.getElementById('meta').innerText = `${post.date} | 分類：${post.category}`;
-
-    // 讀取 Markdown 檔案
-    fetch(post.file)
-      .then(res => res.text())
-      .then(md => {
-        // 轉換 Markdown 並放入置中的容器
-        document.getElementById('content').innerHTML = marked.parse(md);
-        
-        // 渲染完後執行程式碼高亮
-        document.querySelectorAll('pre code').forEach(el => {
-          hljs.highlightElement(el);
-        });
+        fetch(post.file)
+          .then(res => res.text())
+          .then(md => {
+            document.getElementById('content').innerHTML = marked.parse(md);
+            // 渲染後執行代碼高亮
+            document.querySelectorAll('pre code').forEach(el => {
+              hljs.highlightElement(el);
+            });
+          });
       });
-  });
-</script>
-
+    </script>
 </body>
 </html>

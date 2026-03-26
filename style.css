@@ -1,4 +1,6 @@
-/* 全域設定 */
+/* =========================================
+   1. 全域設定 (Global Settings)
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -6,6 +8,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* 逐浪百川：深海藍到青色的動態漸層背景 */
 body {
     background: linear-gradient(135deg, #0A192F 0%, #112240 50%, #004d7a 100%);
     background-attachment: fixed;
@@ -14,7 +17,9 @@ body {
     min-height: 100vh;
 }
 
-/* 導覽列 */
+/* =========================================
+   2. 導覽列 (Navigation)
+   ========================================= */
 nav {
     display: flex;
     justify-content: space-between;
@@ -31,8 +36,8 @@ nav {
     font-size: 1.5rem;
     font-weight: bold;
     color: #64FFDA;
-    cursor: pointer;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .nav-links {
@@ -51,60 +56,36 @@ nav {
     color: #64FFDA;
 }
 
-/* 文章容器與置中設定 */
-.post-container {
-    max-width: 850px;
-    margin: 40px auto;
-    padding: 40px;
-    background: rgba(17, 34, 64, 0.6);
-    border-radius: 16px;
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(100, 255, 218, 0.1);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+/* =========================================
+   3. 首頁視覺區 (Hero Section - 你的封面)
+   ========================================= */
+.hero {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
 }
 
-.post-title {
-    text-align: center;
-    font-size: 2.5rem;
+.hero h1 {
+    font-size: 3rem;
     color: #E6F1FF;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.post-meta {
-    text-align: center;
+.hero .highlight {
     color: #64FFDA;
-    margin-bottom: 30px;
-    font-size: 0.9rem;
 }
 
-/* Markdown 內容區塊 */
-#content {
-    line-height: 1.8;
-    color: #CCD6F6;
+.fade-out {
+    transition: opacity 0.2s linear;
 }
 
-#content h1, #content h2, #content h3 {
-    color: #64FFDA;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-    text-align: left; /* 內容標題維持靠左較易閱讀 */
-}
-
-#content p {
-    margin-bottom: 1.2em;
-}
-
-/* 讓程式碼區塊背景與網頁融合 */
-#content pre {
-    background: rgba(2, 12, 27, 0.7) !important;
-    padding: 20px;
-    border-radius: 10px;
-    overflow-x: auto;
-    border: 1px solid rgba(100, 255, 218, 0.2);
-    margin: 20px 0;
-}
-
-/* 原本的卡片與動畫樣式保持不變 */
+/* =========================================
+   4. 卡片容器 (Portfolio Grid)
+   ========================================= */
 .container {
     max-width: 1200px;
     margin: 0 auto 100px auto;
@@ -120,6 +101,8 @@ nav {
     border-radius: 16px;
     padding: 30px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
     cursor: pointer;
 }
 
@@ -129,61 +112,77 @@ nav {
     border-color: rgba(100, 255, 218, 0.5);
 }
 
-.post-item {
-    background: rgba(255, 255, 255, 0.05);
-    border-left: 4px solid #64FFDA;
-    padding: 15px 20px;
-    margin: 15px 0;
-    transition: 0.3s;
-    cursor: pointer;
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
 }
 
-.post-item:hover {
+.card h3 {
+    color: #E6F1FF;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #8892B0;
+    margin-bottom: 20px;
+}
+
+.tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tags li {
+    font-size: 0.85rem;
+    color: #64FFDA;
     background: rgba(100, 255, 218, 0.1);
+    padding: 5px 10px;
+    border-radius: 20px;
 }
 
-/* --- 文章頁面專用樣式 (不影響封面) --- */
+/* =========================================
+   5. 文章頁面專用樣式 (Post & Blog List)
+   ========================================= */
 
-/* 文章與列表的置中容器 */
+/* 置中的玻璃質感容器 */
 .post-container {
     max-width: 850px;
     margin: 40px auto;
     padding: 40px;
-    background: rgba(17, 34, 64, 0.6); /* 半透明背景，透出網頁原本的漸層 */
+    background: rgba(17, 34, 64, 0.5); /* 半透明以透出背景漸層 */
     border-radius: 16px;
     backdrop-filter: blur(12px);
     border: 1px solid rgba(100, 255, 218, 0.1);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-.post-title {
+/* 標題與資訊置中 */
+.post-header-center {
     text-align: center;
+    margin-bottom: 30px;
+}
+
+.post-title {
     font-size: 2.5rem;
     color: #E6F1FF;
     margin-bottom: 10px;
 }
 
 .post-meta {
-    text-align: center;
     color: #64FFDA;
-    margin-bottom: 30px;
     font-size: 0.9rem;
 }
 
-/* Markdown 內容排版 */
+/* Markdown 內容區塊 */
 #content {
     line-height: 1.8;
     color: #CCD6F6;
 }
 
-/* Markdown 內的標題與文字 */
-#content h1, #content h2, #content h3 {
-    color: #64FFDA;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-}
-
-/* 強制 Markdown 背景透明，直接使用網頁背景 */
+/* 強制 Markdown 背景透明，繼承 body 的漸層 */
 .markdown-body {
     background: transparent !important;
 }
@@ -198,7 +197,7 @@ nav {
     margin: 20px 0;
 }
 
-/* 文章列表項目的滑過效果 */
+/* 文章列表項目的樣式 (blog.html) */
 .post-item {
     background: rgba(255, 255, 255, 0.05);
     border-left: 4px solid #64FFDA;
@@ -211,4 +210,25 @@ nav {
 .post-item:hover {
     background: rgba(100, 255, 218, 0.1);
     transform: translateX(5px);
+}
+
+/* =========================================
+   6. 頁腳與動畫 (Footer & Animations)
+   ========================================= */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #8892B0;
+    font-size: 0.9rem;
+}
+
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
 }
