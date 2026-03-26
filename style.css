@@ -234,3 +234,31 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* =========================================
+   7. 聯絡方式圖示 (Contact Icons)
+   ========================================= */
+.contact-icons {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+    justify-content: center; /* 讓圖示在首頁置中 */
+}
+
+.contact-icons a {
+    color: #CCD6F6; /* 圖示預設顏色 */
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.contact-icons a:hover {
+    color: #64FFDA; /* 懸停時變青色 */
+    transform: translateY(-5px); /* 懸停時稍微上浮 */
+}
+
+/* 圖示的大小設定 */
+.contact-icons .icon {
+    width: 28px;
+    height: 28px;
+}
+
