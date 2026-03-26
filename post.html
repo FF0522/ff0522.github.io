@@ -1,36 +1,59 @@
-<h1 id="title"></h1>
-<div id="content"></div>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章內容 - 邦邦邦邦</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js/styles/github-dark.css">
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="logo">邦邦邦邦</a>
+    <ul class="nav-links">
+        <li><a href="blog.html?category=cp">競程</a></li>
+        <li><a href="blog.html?category=security">資安</a></li>
+        <li><a href="blog.html?category=life">日常</a></li>
+    </ul>
+</nav>
+
+<div class="post-container fade-in">
+    <h1 id="title" class="post-title">載入中...</h1>
+    <p id="meta" class="post-meta"></p>
+    <div id="content"></div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlight.js/lib/common.min.js"></script>
 
 <script>
 const params = new URLSearchParams(window.location.search);
-const title = params.get('title');
+const titleParam = params.get('title');
 
 fetch('posts.json')
   .then(res => res.json())
   .then(data => {
-    const post = data.find(p => p.title === title);
+    const post = data.find(p => p.title === titleParam);
+    if (!post) {
+        document.getElementById('title').innerText = "找不到文章";
+        return;
+    }
 
     document.getElementById('title').innerText = post.title;
+    document.getElementById('meta').innerText = `${post.date} | 分類：${post.category}`;
 
-    // 🔥 讀 Markdown
     fetch(post.file)
       .then(res => res.text())
       .then(md => {
         document.getElementById('content').innerHTML = marked.parse(md);
+        // 渲染 Markdown 後觸發程式碼高亮
+        document.querySelectorAll('pre code').forEach(el => {
+          hljs.highlightElement(el);
+        });
       });
   });
-  
 </script>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js/styles/github-dark.css">
-<script src="https://cdn.jsdelivr.net/npm/highlight.js/lib/common.min.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll('pre code').forEach(el => {
-    hljs.highlightElement(el);
-  });
-});
-</script>
+</body>
+</html>

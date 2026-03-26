@@ -6,12 +6,12 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* 逐浪百川：深海藍到青色的動態漸層背景 */
 body {
     background: linear-gradient(135deg, #0A192F 0%, #112240 50%, #004d7a 100%);
     background-attachment: fixed;
     color: #CCD6F6;
     line-height: 1.6;
+    min-height: 100vh;
 }
 
 /* 導覽列 */
@@ -31,6 +31,8 @@ nav {
     font-size: 1.5rem;
     font-weight: bold;
     color: #64FFDA;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .nav-links {
@@ -49,28 +51,60 @@ nav {
     color: #64FFDA;
 }
 
-/* 首頁視覺區 */
-.hero {
-    height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* 文章容器與置中設定 */
+.post-container {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 40px;
+    background: rgba(17, 34, 64, 0.6);
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.post-title {
     text-align: center;
-    padding: 0 20px;
-}
-
-.hero h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #E6F1FF;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
-.hero .highlight {
+.post-meta {
+    text-align: center;
     color: #64FFDA;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
 }
 
-/* 卡片容器 (使用 Grid 排版) */
+/* Markdown 內容區塊 */
+#content {
+    line-height: 1.8;
+    color: #CCD6F6;
+}
+
+#content h1, #content h2, #content h3 {
+    color: #64FFDA;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    text-align: left; /* 內容標題維持靠左較易閱讀 */
+}
+
+#content p {
+    margin-bottom: 1.2em;
+}
+
+/* 讓程式碼區塊背景與網頁融合 */
+#content pre {
+    background: rgba(2, 12, 27, 0.7) !important;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    border: 1px solid rgba(100, 255, 218, 0.2);
+    margin: 20px 0;
+}
+
+/* 原本的卡片與動畫樣式保持不變 */
 .container {
     max-width: 1200px;
     margin: 0 auto 100px auto;
@@ -80,100 +114,30 @@ nav {
     gap: 30px;
 }
 
-/* === 核心互動設計：浮動方框與玻璃材質 === */
 .card {
     background: rgba(17, 34, 64, 0.7);
     border: 1px solid rgba(100, 255, 218, 0.1);
     border-radius: 16px;
     padding: 30px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 彈性的過渡動畫 */
-    position: relative;
-    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
 }
 
-/* 滑鼠移過去的特效 */
 .card:hover {
-    transform: translateY(-12px); /* 向上浮動 */
-    box-shadow: 0 15px 30px rgba(0, 180, 216, 0.2); /* 底部青色發光陰影 */
-    border-color: rgba(100, 255, 218, 0.5); /* 邊框變亮 */
-}
-
-.card-icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-}
-
-.card h3 {
-    color: #E6F1FF;
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-.card p {
-    color: #8892B0;
-    margin-bottom: 20px;
-}
-
-/* 標籤樣式 */
-.tags {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.tags li {
-    font-size: 0.85rem;
-    color: #64FFDA;
-    background: rgba(100, 255, 218, 0.1);
-    padding: 5px 10px;
-    border-radius: 20px;
-}
-
-/* 頁腳 */
-footer {
-    text-align: center;
-    padding: 30px;
-    color: #8892B0;
-    font-size: 0.9rem;
-}
-
-/* === 動態效果：淡入與滑動 === */
-.fade {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease;
-}
-
-.fade.show {
-  opacity: 1;
-  transform: translateY(0);
+    transform: translateY(-12px);
+    box-shadow: 0 15px 30px rgba(0, 180, 216, 0.2);
+    border-color: rgba(100, 255, 218, 0.5);
 }
 
 .post-item {
-  border-left: 5px solid #ff0522;
-  padding: 10px;
-  margin: 10px 0;
-  cursor: pointer;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid #64FFDA;
+    padding: 15px 20px;
+    margin: 15px 0;
+    transition: 0.3s;
+    cursor: pointer;
 }
 
-#content {
-  max-width: 800px;
-  margin: auto;
-  line-height: 1.6;
-}
-
-#content h1, #content h2 {
-  margin-top: 20px;
-}
-
-#content pre {
-  background: #1e1e1e;
-  color: #fff;
-  padding: 10px;
-  overflow-x: auto;
-}
-
-.fade-out {
-  transition: opacity 0.2s linear;
+.post-item:hover {
+    background: rgba(100, 255, 218, 0.1);
 }

@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的部落格</title>
+    <title>部落格文章 - 邦邦邦邦</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>我的文章</h1>
-  <div id="post-list"></div>
-    <h1 id="title"></h1>
+<nav>
+    <a href="index.html" class="logo">邦邦邦邦</a>
+    <ul class="nav-links">
+        <li><a href="index.html#about">關於我</a></li>
+        <li><a href="index.html#portfolio">技術專題</a></li>
+        <li><a href="index.html#blog">部落格</a></li>
+    </ul>
+</nav>
+
+<div class="post-container">
+    <h1 id="title" style="text-align: center; color: #64FFDA; margin-bottom: 30px;">載入中...</h1>
     <div id="post-list"></div>
-  <script src="blog.js"></script>
+</div>
+
+<script src="blog.js"></script>
 </body>
 </html>
