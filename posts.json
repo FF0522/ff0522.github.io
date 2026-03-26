@@ -1,5 +1,11 @@
 [
   {
+    "title": "關於我",
+    "date": "2026-03-26",
+    "category": "info",
+    "file": "posts/about.md"
+  },
+  {
     "title": "CF 解題紀錄 #1",
     "date": "2026-03-23",
     "category": "cp",

@@ -57,7 +57,7 @@ nav {
 }
 
 /* =========================================
-   3. 首頁視覺區 (Hero Section - 你的封面)
+   3. 首頁視覺區 (Hero Section)
    ========================================= */
 .hero {
     height: 60vh;
@@ -180,6 +180,8 @@ nav {
 #content {
     line-height: 1.8;
     color: #CCD6F6;
+    max-width: 800px;
+    margin: auto;
 }
 
 /* 強制 Markdown 背景透明，繼承 body 的漸層 */
@@ -200,7 +202,7 @@ nav {
 /* 文章列表項目的樣式 (blog.html) */
 .post-item {
     background: rgba(255, 255, 255, 0.05);
-    border-left: 4px solid #64FFDA;
+    border-left: 5px solid #64FFDA;
     padding: 15px 20px;
     margin: 15px 0;
     transition: 0.3s;
